@@ -1,45 +1,10 @@
 Shell
 ===
-A simple shell in C
-
-## Assumptions
-- Max number of arguments that a command can take: `1024`.
-
-## File Structure
-
-- `shell.h`: Header file containing definitions for the program
-- `shell.c`: The main C file
-- `written.txt`: Answers to the theory problems
-- `demo_run.txt`: Showing a demo run of the program
-
-
-## Test Results
-```
-w4118@w4118:~/Desktop/shell$ make test
-python tester.py
-2 of 2 tests passed
-5 of 5 tests passed
-12 of 12 tests passed
-3 of 3 tests passed
-2 of 2 tests passed
-```
-
-## Linting with Checkpatch
-```
-w4118@w4118:~/Desktop/shell$ make lint-verbose
-checkpatch --no-tree --file shell.c
-total: 0 errors, 0 warnings, 518 lines checked
-
-shell.c has no obvious style problems and is ready for submission.
-checkpatch --no-tree --file shell.h
-total: 0 errors, 0 warnings, 40 lines checked
-
-shell.h has no obvious style problems and is ready for submission.
-```
+A simple shell in C built for an OS class that supports pipes and basic history.
 
 ## Test Run
 ```
-w4118@w4118:~/Desktop/shell$ ./w4118_sh
+~/Desktop/shell$ ./w4118_sh
 $/bin/ls
 demo_run.txt  Makefile    README.md  shell.c  shell.h  tester.py    w4118_sh  written.txt
 $/bin/cat Makefile | /usr/bin/wc
@@ -71,7 +36,7 @@ $exit
 ## Memory Leaks check
 
 ```
-w4118@w4118:~/Desktop/shell$ make valgrind
+~/Desktop/shell$ make valgrind
 gcc -g -o w4118_sh shell.c -Wall -W
 valgrind --leak-check=full --show-leak-kinds=all ./w4118_sh
 ==3074== Memcheck, a memory error detector
